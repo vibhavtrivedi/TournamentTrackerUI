@@ -1,0 +1,21 @@
+<div class="form-container">
+  <form [formGroup]="prizesForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="placeNumber">Place Number</label>
+      <input id="placeNumber" type="text" formControlName="placeNumber" placeholder="Enter your place number" />
+    </div>
+    <div class="form-group">
+      <label for="placeName">Place Name</label>
+      <input id="placeName" type="text" formControlName="placeName" placeholder="Enter your place name" />
+    </div>
+    <div class="form-group">
+      <label for="prizeAmount">Prize Amount</label>
+      <input id="prizeAmount" type="text" formControlName="prizeAmount" placeholder="Enter your prize amount" />
+    </div>
+    <div class="form-group">
+      <label for="prizePercentage">Prize Percentage</label>
+      <input id="prizePercentage" type="text" formControlName="prizePercentage" placeholder="Enter your prize percentage" />
+    </div>
+    <button type="submit" class="submit-btn">Submit</button>
+  </form>
+</div>

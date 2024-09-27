@@ -1,4 +1,8 @@
 /* Basic styling for the navbar */
+.navbar {
+  display: flex;
+  justify-content: end;
+}
 nav {
   padding: 1rem;
 }
