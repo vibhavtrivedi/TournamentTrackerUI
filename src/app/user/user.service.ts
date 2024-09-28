@@ -10,10 +10,12 @@ export class UserService {
 
   constructor(private apiService: ApiService) { }
 
-  getUser(): any {
-    const requestUrl = environment.API_URL + 'Person';
+  getUser(pageNumber: number, pageSize: number): any {
+    const requestUrl = `${environment.API_URL}Person?pageNumber=${pageNumber}&pageSize=${pageSize}`;
     return this.apiService.get(requestUrl);
-  }
+}
+
+
   createUser(user: UserModel): any {
     const body = {
       cellPhoneNumber: user.cellPhoneNumber,

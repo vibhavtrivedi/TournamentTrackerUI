@@ -13,7 +13,7 @@ import { ApiService } from '../utils/api.service';
   templateUrl: './user.component.html',
   styleUrl: './user.component.css'
 })
-export class UserComponent implements OnInit {
+export class UserComponent {
   contactForm: FormGroup;
   public usersData: UserModel | undefined;
   public userData: UserModel | undefined;
@@ -26,15 +26,6 @@ export class UserComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    this.getUsers();
-  }
-
-  getUsers() {
-    this.userService.getUser().subscribe((data:UserModel) => {
-      this.usersData = data;
-    })
-  }
   onSubmit() {
     if (this.contactForm.valid) {
       this.createUser(this.contactForm.value)
