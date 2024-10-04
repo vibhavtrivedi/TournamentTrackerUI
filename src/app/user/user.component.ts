@@ -7,9 +7,6 @@ import { ApiService } from '../utils/api.service';
 
 @Component({
   selector: 'app-user',
-  standalone: true,
-  imports: [ReactiveFormsModule, HttpClientModule],
-  providers:[UserService],
   templateUrl: './user.component.html',
   styleUrl: './user.component.css'
 })
