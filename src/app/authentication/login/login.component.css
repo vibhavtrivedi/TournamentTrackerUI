@@ -59,11 +59,13 @@ input:focus {
   background-color: #45a049;
 }
 
+.register,
 .forgot-password {
   text-align: center;
   margin-top: 15px;
 }
 
+.register a,
 .forgot-password a {
   color: #4caf50;
   text-decoration: none;

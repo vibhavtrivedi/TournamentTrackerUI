@@ -16,7 +16,6 @@ export class AuthService {
   constructor(private apiService: ApiService, private route:Router) { }
 
   registerUser(userData: RegisterModel) {
-    console.log("u", userData);
     const body = {
       name: userData.name,
       email: userData.email,
@@ -34,8 +33,7 @@ export class AuthService {
     }
     const requestUrl = environment.API_URL + 'Auth/login';
       const res = this.apiService.post(requestUrl, body).subscribe((res) => {
-      console.log('res', res);
-      if (res) {
+      if (res != 'Invalid Credentials') {
         localStorage.setItem('token', res);
         this.loggedIn.next(true);
         this.route.navigate(['/']);

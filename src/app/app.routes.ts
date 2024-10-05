@@ -1,15 +1,22 @@
 import { Routes } from '@angular/router';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { authGuard } from './auth.guard';
 
 
 export const routes: Routes = [
-
+  {
+    path: '',
+    component: LandingPageComponent
+  },
   {
     path: 'user',
-    loadChildren: ()=>import('./user/user.module').then((m) => m.UserModule)
+    loadChildren: () => import('./user/user.module').then((m) => m.UserModule),
+    canActivate: [authGuard]
   },
   {
     path: 'prize',
-    loadComponent: ()=>import('./prize/prize.component').then((m) => m.PrizeComponent)
+    loadComponent: ()=>import('./prize/prize.component').then((m) => m.PrizeComponent),
+    canActivate: [authGuard]
   },
   {
     path: 'register',
