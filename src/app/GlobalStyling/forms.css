@@ -1,4 +1,4 @@
-.login-form-container {
+.form-container {
   max-width: 400px;
   margin: 50px auto;
   padding: 30px;
@@ -43,7 +43,7 @@ input:focus {
   outline: none;
 }
 
-.login-btn {
+.btn {
   width: 100%;
   padding: 12px;
   background-color: #4caf50;

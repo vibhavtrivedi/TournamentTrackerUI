@@ -12,6 +12,20 @@
           {{ item.label }}
         </a>
       </li>
+
+    </ul>
+    <ul class="navbar-nav">
+      <li *ngFor="let item of navItemsAuth; let i = index;">
+        <a
+          class="nav-link"
+          (click)="navItemClick(i)"
+          [routerLink]="[item.path]"
+          [routerLinkActive]="['is-active-item']"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          {{ item.label }}
+        </a>
+      </li>
     </ul>
   </div>
 </nav>

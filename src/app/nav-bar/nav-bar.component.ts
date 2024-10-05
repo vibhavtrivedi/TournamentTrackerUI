@@ -39,16 +39,25 @@ export class NavBarComponent {
       isActiveItem: false,
       path: '/tournament',
       label: 'Tournament'
-    },
+    }
+  ]
+
+  navItemsAuth: NavBarModel[] = [
     {
       id: 'login',
       name: 'login',
       isActiveItem: false,
       path: '/login',
       label: 'Login'
+    },
+    {
+      id: 'register',
+      name: 'register',
+      isActiveItem: false,
+      path: '/register',
+      label: 'Register'
     }
   ]
-
   navItemClick(x: any) {
 
   }

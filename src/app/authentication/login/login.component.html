@@ -1,4 +1,4 @@
-<div class="login-form-container">
+<div class="form-container">
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <h2>Login</h2>
     <div class="input-group">
@@ -9,7 +9,7 @@
       <label for="password">Password</label>
       <input type="password" id="password" formControlName="password" placeholder="Enter your password" autocomplete="current-password" />
     </div>
-    <button type="submit" class="login-btn">Login</button>
+    <button type="submit" class="btn">Login</button>
     <div class="forgot-password">
       <a href="#">Forgot your password?</a>
     </div>
@@ -18,5 +18,3 @@
     </div>
   </form>
 </div>
-
-

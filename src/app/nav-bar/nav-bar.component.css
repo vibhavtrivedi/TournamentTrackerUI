@@ -1,7 +1,6 @@
 /* Basic styling for the navbar */
 .navbar {
   display: flex;
-  justify-content: end;
 }
 nav {
   padding: 1rem;
@@ -11,6 +10,9 @@ nav {
 nav ul {
   list-style-type: none;
   padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 nav ul li {
@@ -29,3 +31,9 @@ nav ul li a:hover {
   text-decoration: underline;
 }
 
+.collapse {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}

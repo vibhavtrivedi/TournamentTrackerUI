@@ -9,7 +9,7 @@ import { AuthService } from '../auth.service';
   imports: [ReactiveFormsModule],
   providers: [AuthService],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrl: '/src/app/GlobalStyling/forms.css'
 })
 export class LoginComponent {
   loginForm: FormGroup;

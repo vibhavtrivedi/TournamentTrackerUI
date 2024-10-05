@@ -10,7 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [ReactiveFormsModule, HttpClientModule],
   providers: [AuthService],
   templateUrl: './register.component.html',
-  styleUrl: './register.component.css'
+  styleUrl: '/src/app/GlobalStyling/forms.css'
 })
 export class RegisterComponent {
 
