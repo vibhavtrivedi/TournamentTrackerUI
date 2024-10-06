@@ -27,7 +27,6 @@ export class LoginComponent {
     }
   }
 
-
   loginUser(userData: LoginModel) {
     this.authService.loginUser(userData);
   }

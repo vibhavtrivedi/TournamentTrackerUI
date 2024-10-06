@@ -14,7 +14,7 @@
       </li>
 
     </ul>
-    <ul class="navbar-nav">
+    <ul class="navbar-nav" *ngIf="!loggedIn">
       <li *ngFor="let item of navItemsAuth; let i = index;">
         <a
           class="nav-link"
@@ -24,6 +24,14 @@
           [routerLinkActiveOptions]="{ exact: true }"
         >
           {{ item.label }}
+        </a>
+      </li>
+    </ul>
+    <ul class="navbar-nav" *ngIf="loggedIn">
+      <li>
+        <a
+        >
+          Hi, Vibhav
         </a>
       </li>
     </ul>

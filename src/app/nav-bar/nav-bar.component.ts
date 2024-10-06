@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavBarModel } from './nav-bar.model';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { TokenStorageServiceService } from '../utils/token-storage-service.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -10,7 +11,8 @@ import { RouterModule } from '@angular/router';
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.css'
 })
-export class NavBarComponent {
+export class NavBarComponent implements OnInit {
+  loggedIn: boolean = false;
   navItems: NavBarModel[] = [
     {
       id: 'home',
@@ -60,5 +62,13 @@ export class NavBarComponent {
   ]
   navItemClick(x: any) {
 
+  }
+  constructor(private tokenService: TokenStorageServiceService) {
+
+  }
+  ngOnInit(): void {
+    this.tokenService.token$.subscribe((data) => {
+      this.loggedIn = data;
+    })
   }
 }

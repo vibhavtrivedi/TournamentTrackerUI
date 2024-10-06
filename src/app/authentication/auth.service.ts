@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { ApiService } from '../utils/api.service';
 import { LoginModel, RegisterModel } from './auth.model';
 import { environment } from '../environments/environment';
-import { BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
+import { TokenStorageServiceService } from '../utils/token-storage-service.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +11,7 @@ import { Router } from '@angular/router';
 
 export class AuthService {
 
-  private loggedIn = new BehaviorSubject<Boolean>(false);
-
-  constructor(private apiService: ApiService, private route:Router) { }
+  constructor(private apiService: ApiService, private route:Router, private tokenService: TokenStorageServiceService) { }
 
   registerUser(userData: RegisterModel) {
     const body = {
@@ -34,8 +32,7 @@ export class AuthService {
     const requestUrl = environment.API_URL + 'Auth/login';
       const res = this.apiService.post(requestUrl, body).subscribe((res) => {
       if (res != 'Invalid Credentials') {
-        localStorage.setItem('token', res);
-        this.loggedIn.next(true);
+        this.tokenService.setToken(res.token);
         this.route.navigate(['/']);
       }
     });

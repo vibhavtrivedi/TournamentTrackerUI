@@ -16,7 +16,7 @@ export class ApiService {
   }
 
   post(url: string, body:any): Observable<any> {
-    return this.http.post(url, body, { responseType: 'text' }).pipe(catchError(this.handleError))
+    return this.http.post(url, body, { responseType: 'json' }).pipe(catchError(this.handleError))
   }
   private handleError(error: HttpErrorResponse): any {
     if (error.error instanceof ErrorEvent) {
