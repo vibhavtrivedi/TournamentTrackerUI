@@ -13,6 +13,8 @@ import { TokenStorageServiceService } from '../utils/token-storage-service.servi
 })
 export class NavBarComponent implements OnInit {
   loggedIn: boolean = false;
+  name: string | undefined | null;
+
   navItems: NavBarModel[] = [
     {
       id: 'home',
@@ -60,15 +62,29 @@ export class NavBarComponent implements OnInit {
       label: 'Register'
     }
   ]
+
   navItemClick(x: any) {
 
   }
-  constructor(private tokenService: TokenStorageServiceService) {
+
+  constructor(private readonly tokenService: TokenStorageServiceService) {
 
   }
+
   ngOnInit(): void {
+    this.getLoggedInstatus();
+    this.getLoggedInName();
+  }
+
+  getLoggedInName() {
+    this.tokenService.name$.subscribe((data: string | null) => {
+      this.name = data;
+    })
+  }
+  getLoggedInstatus() {
     this.tokenService.token$.subscribe((data) => {
       this.loggedIn = data;
     })
   }
+
 }

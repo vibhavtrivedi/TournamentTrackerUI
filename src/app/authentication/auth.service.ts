@@ -33,6 +33,7 @@ export class AuthService {
       const res = this.apiService.post(requestUrl, body).subscribe((res) => {
       if (res != 'Invalid Credentials') {
         this.tokenService.setToken(res.token);
+        this.tokenService.setName(res.user);
         this.route.navigate(['/']);
       }
     });
