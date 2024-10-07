@@ -88,6 +88,24 @@ export class NavBarComponent implements OnInit {
 
   showDropdown() {
     let dropdown = document.getElementsByClassName('dropdown');
-    console.log(dropdown);
+    if (dropdown.length > 0) {
+      let ele = dropdown[0] as HTMLElement;
+      if (ele.style.display === 'none') {
+         ele.style.display = 'block'
+      } else {
+        ele.style.display = 'none';
+      }
+    }
+  }
+
+  logout() {
+    this.tokenService.removeToken();
+    this.tokenService.token$.subscribe((data) => {
+      this.loggedIn = data;
+      if (this.loggedIn === false) {
+        this.showDropdown();
+      }
+    })
+
   }
 }
