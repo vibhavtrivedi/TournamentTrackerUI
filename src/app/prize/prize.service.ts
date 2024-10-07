@@ -11,7 +11,6 @@ export class PrizeService {
   constructor(private apiService: ApiService) { }
 
   createPrize(prizeData: PrizeModel): any {
-    console.log('s', prizeData);
     const data = {
       placeNumber: prizeData.placeNumber,
       placeName: prizeData.placeName,
@@ -19,6 +18,6 @@ export class PrizeService {
       placePercentage:prizeData.prizePercentage
     }
     const requestUrl = environment.API_URL + 'Prize';
-    this.apiService.post(requestUrl, data)
+    return this.apiService.post(requestUrl, data)
   }
 }

@@ -37,3 +37,7 @@ nav ul li a:hover {
   align-items: center;
   width: 100%;
 }
+
+.dropdown{
+  display: none;
+}

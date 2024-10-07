@@ -31,10 +31,18 @@
       <li>
         <a
         class="loggedname"
+        (click)="showDropdown()"
         >
           {{name}}
         </a>
       </li>
     </ul>
+    <div class="dropdown">
+      <a
+        class="logout"
+        >
+          Logout
+        </a>
+    </div>
   </div>
 </nav>

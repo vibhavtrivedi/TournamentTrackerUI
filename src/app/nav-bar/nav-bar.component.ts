@@ -67,9 +67,7 @@ export class NavBarComponent implements OnInit {
 
   }
 
-  constructor(private readonly tokenService: TokenStorageServiceService) {
-
-  }
+  constructor(private readonly tokenService: TokenStorageServiceService) {}
 
   ngOnInit(): void {
     this.getLoggedInstatus();
@@ -81,10 +79,15 @@ export class NavBarComponent implements OnInit {
       this.name = data;
     })
   }
+
   getLoggedInstatus() {
     this.tokenService.token$.subscribe((data) => {
       this.loggedIn = data;
     })
   }
 
+  showDropdown() {
+    let dropdown = document.getElementsByClassName('dropdown');
+    console.log(dropdown);
+  }
 }

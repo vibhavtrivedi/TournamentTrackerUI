@@ -27,10 +27,11 @@ export class PrizeComponent {
   onSubmit() {
     if (this.prizesForm.valid) {
       this.createPrize(this.prizesForm.value);
+      this.prizesForm.reset();
     }
   }
+
   createPrize(data: PrizeModel): any {
-    console.log('da', data);
     this.prizeService.createPrize(data).subscribe((prize:PrizeModel) => {
       this.prizeData = prize;
     })

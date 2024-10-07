@@ -15,7 +15,7 @@ export class ApiService {
       .pipe(catchError(this.handleError));
   }
 
-  post(url: string, body:any): Observable<any> {
+  post(url: string, body: any): Observable<any> {
     return this.http.post(url, body, { responseType: 'json' }).pipe(catchError(this.handleError))
   }
   private handleError(error: HttpErrorResponse): any {
