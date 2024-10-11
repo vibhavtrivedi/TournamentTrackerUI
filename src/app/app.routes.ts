@@ -19,6 +19,11 @@ export const routes: Routes = [
     canActivate: [authGuard]
   },
   {
+    path: 'video',
+    loadComponent: ()=>import('./video-streaming/video-streaming.component').then((m) => m.VideoStreamingComponent),
+    canActivate: [authGuard]
+  },
+  {
     path: 'register',
     loadChildren: () => import('./authentication/auth.module').then((m) => m.AuthModule)
   },

@@ -34,7 +34,7 @@ export class AuthService {
       if (res != 'Invalid Credentials') {
         this.tokenService.setToken(res.token);
         this.tokenService.setName(res.user);
-        this.route.navigate(['/']);
+        this.route.navigate(['/video']);
       }
     });
   }

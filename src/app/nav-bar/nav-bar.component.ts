@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavBarModel } from './nav-bar.model';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { TokenStorageServiceService } from '../utils/token-storage-service.service';
 
 @Component({
@@ -67,7 +67,7 @@ export class NavBarComponent implements OnInit {
 
   }
 
-  constructor(private readonly tokenService: TokenStorageServiceService) {}
+  constructor(private readonly tokenService: TokenStorageServiceService, private router: Router) {}
 
   ngOnInit(): void {
     this.getLoggedInstatus();
@@ -106,6 +106,6 @@ export class NavBarComponent implements OnInit {
         this.showDropdown();
       }
     })
-
+    this.router.navigate(['/']);
   }
 }
