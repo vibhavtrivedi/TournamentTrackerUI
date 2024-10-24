@@ -24,7 +24,6 @@ export class AuthService {
   }
 
   loginUser(user: LoginModel) {
-    console.log('user', user);
     const body = {
       email: user.email,
       password: user.password

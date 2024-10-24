@@ -4,6 +4,7 @@ import { UserComponent } from './user.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserService } from './user.service';
 import { HttpClientModule } from '@angular/common/http';
+import { authGuard } from '../auth.guard';
 
 const routes: Routes = [
   {
@@ -13,6 +14,7 @@ const routes: Routes = [
   {
     path: 'userList',
     component: UserListComponent,
+    canActivate: [authGuard]
   },
 ];
 

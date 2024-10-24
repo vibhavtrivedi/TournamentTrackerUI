@@ -15,9 +15,14 @@ export class PrizeService {
       placeNumber: prizeData.placeNumber,
       placeName: prizeData.placeName,
       prizeAmount: prizeData.prizeAmount,
-      placePercentage:prizeData.prizePercentage
+      prizePercentage:prizeData.prizePercentage
     }
     const requestUrl = environment.API_URL + 'Prize';
     return this.apiService.post(requestUrl, data)
+  }
+
+  getPrizes(pageNumber: number, pageSize: number): any {
+    const requestUrl = `${environment.API_URL}Prize?PageNumber=${pageNumber}&PageSize=${pageSize}`;
+    return this.apiService.get(requestUrl);
   }
 }

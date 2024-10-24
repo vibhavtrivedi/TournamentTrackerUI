@@ -1,59 +1,65 @@
-.form-container {
-  max-width: 500px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-}
-input::placeholder {
-  font-family: monospace; /* Change this to your desired font */
-  font-size: 14px; /* Optional: to adjust size */
-  color: #999; /* Optional: change placeholder color */
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  margin: 25px 0;
+  font-size: 16px;
+  text-align: left;
 }
 
-h2 {
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-
-.form-group {
-  margin-bottom: 1.5rem;
-}
-
-label {
-  display: block;
-  margin-bottom: 0.5rem;
+.styled-table thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
   font-weight: bold;
-  font-family: monospace;
 }
 
-input {
-  width: 100%;
-  padding: 0.75rem;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
-  box-sizing: border-box;
+.styled-table th, .styled-table td {
+  padding: 12px 15px;
+  border: 1px solid #dddddd;
 }
 
-input:focus {
-  border-color: #4CAF50;
-  outline: none;
+.styled-table tbody tr:nth-child(even) {
+  background-color: #f3f3f3;
 }
 
-.submit-btn {
-  width: 100%;
-  padding: 1rem;
-  background-color: #4CAF50;
+.styled-table tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+.styled-table tbody tr:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.styled-table tbody tr.active-row {
+  font-weight: bold;
+  color: #009879;
+}
+
+.pagination {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination button {
+  background-color: #009879;
   color: white;
   border: none;
-  border-radius: 5px;
-  font-size: 1rem;
+  padding: 8px 12px;
+  margin: 0 5px;
+  border-radius: 4px;
   cursor: pointer;
-  font-family: monospace;
 }
 
-.submit-btn:hover {
-  background-color: #45a049;
+.pagination button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  margin: 0 10px;
+  font-size: 16px;
 }

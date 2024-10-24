@@ -1,21 +1,33 @@
-<div class="form-container">
-  <form [formGroup]="prizesForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="placeNumber">Place Number</label>
-      <input id="placeNumber" type="text" formControlName="placeNumber" placeholder="Enter your place number" />
-    </div>
-    <div class="form-group">
-      <label for="placeName">Place Name</label>
-      <input id="placeName" type="text" formControlName="placeName" placeholder="Enter your place name" />
-    </div>
-    <div class="form-group">
-      <label for="prizeAmount">Prize Amount</label>
-      <input id="prizeAmount" type="text" formControlName="prizeAmount" placeholder="Enter your prize amount" />
-    </div>
-    <div class="form-group">
-      <label for="prizePercentage">Prize Percentage</label>
-      <input id="prizePercentage" type="text" formControlName="prizePercentage" placeholder="Enter your prize percentage" />
-    </div>
-    <button type="submit" class="submit-btn">Submit</button>
-  </form>
+<button class="open-modal-btn" (click)="openModal()">Create Prize</button>
+<div *ngIf="prizeData && prizeData.length > 0; else noData">
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Place Number</th>
+        <th>Place Name</th>
+        <th>Place Amount</th>
+        <th>Place Percentage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of prizeData; let i = index">
+        <td>{{ item.id }}</td>
+        <td>{{ item?.placeNumber }}</td>
+        <td>{{ item?.placeName }}</td>
+        <td>{{ item?.prizeAmount }}</td>
+        <td>{{ item?.prizePercentage }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="pagination">
+    <button (click)="previousPage()" [disabled]="pageNumber <= 1">Previous</button>
+    <span>Page {{ pageNumber }}</span>
+    <button (click)="nextPage()">Next</button>
+  </div>
 </div>
+
+<ng-template #noData>
+  <p>No prize data available.</p>
+</ng-template>
+<app-create-prize [modalOpen]="isVisible" (close)="closePopUp()"></app-create-prize>

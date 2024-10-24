@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Directive, OnInit } from '@angular/core';
 import { LoginModel } from '../auth.model';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
+import { AppSignalRService } from '../../app-signal-r.service';
 
 @Component({
   selector: 'app-login',
@@ -9,16 +10,22 @@ import { AuthService } from '../auth.service';
   imports: [ReactiveFormsModule],
   providers: [AuthService],
   templateUrl: './login.component.html',
-  styleUrl: '/src/app/GlobalStyling/forms.css'
+  styleUrl: '/src/app/GlobalStyling/forms.css',
 })
-export class LoginComponent {
-  loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {
+export class LoginComponent implements OnInit {
+  loginForm: FormGroup;
+  receivedMessage: string | undefined;
+
+  constructor(private fb: FormBuilder, private authService: AuthService, private appSignal: AppSignalRService) {
     this.loginForm = this.fb.group({
       email: ['', Validators.required],
       password: ['', Validators.required]
     })
+  }
+
+  ngOnInit(): void {
+
   }
 
   onSubmit() {
